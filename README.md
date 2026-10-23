@@ -245,9 +245,12 @@ coverage is:
 | `test/handoff.test.mjs` | 16 | Threshold math, safety stop points, input races, failure fallbacks, route inheritance, cancellation, persistence recovery |
 | `test/registration.test.mjs` | 2 | Managed registration is byte-faithful outside this plugin, idempotent, and keeps the package discoverable when disabled |
 
-`npm run verify:host` boots a real host in a temporary `DSH_HOME` with Teams and the archive manager
-loaded, exercises all seven tools natively, and checks cold replay from the v4 session log. It requires a
-local host install and is intentionally excluded from CI.
+`npm run verify:host` boots a real host in a temporary `DSH_HOME` with Teams loaded, exercises all seven
+tools natively, and checks cold replay from the v4 session log. If a third-party archive-manager plugin is
+installed at `<DSH_HOME>/profiles/web/node_modules/@michengai/dsh-archive-manager` (override with
+`DSH_ARCHIVE_MANAGER`) it is mounted too, and the exclusion path is verified against a real implementation;
+otherwise that one check reports `SKIP`. It requires a local host install and is intentionally excluded
+from CI — it is the only check that needs the real host rather than temporary state.
 
 ## Repository layout
 
