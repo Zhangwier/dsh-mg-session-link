@@ -1,0 +1,7 @@
+node_modules/
+*.tgz
+host-test-failure.log
+
+# Local verification evidence: contains absolute paths and live session IDs.
+verification*.json
+PROGRESS.md

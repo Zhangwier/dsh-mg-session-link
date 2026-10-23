@@ -1,0 +1,70 @@
+{
+  "name": "dsh-mg-session-link",
+  "version": "0.2.0",
+  "type": "module",
+  "description": "Peer task delegation between existing DSH conversations, with progress reports and opt-in context-triggered main-session handoff.",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "cordis-plugin",
+    "agent",
+    "multi-agent",
+    "session",
+    "delegation",
+    "handoff"
+  ],
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "lib",
+    "locale",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "install:status": "node tools/install.mjs --status",
+    "install:enable": "node tools/install.mjs --enable",
+    "install:disable": "node tools/install.mjs --disable",
+    "verify:host": "node tools/verify-host.mjs"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-tools": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-llm": "0.2.1-rc.2",
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": { "optional": true },
+    "@deepseek-ai/dsh-tools": { "optional": true },
+    "@deepseek-ai/dsh-llm": { "optional": true },
+    "@deepseek-ai/schemastery": { "optional": true }
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-llm": "0.2.1-rc.2",
+    "js-yaml": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zhangwier/dsh-mg-session-link.git"
+  },
+  "homepage": "https://github.com/Zhangwier/dsh-mg-session-link#readme",
+  "bugs": {
+    "url": "https://github.com/Zhangwier/dsh-mg-session-link/issues"
+  },
+  "author": "Zhangwier",
+  "license": "MIT"
+}
